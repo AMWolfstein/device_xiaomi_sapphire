@@ -460,4 +460,10 @@
 
     <!-- Whether to enable Lineage Health Service -->
     <bool name="config_lineageHealthSupported">true</bool>
+
+    <!-- Expected value from fast charging status file  -->
+    <string name="config_oemFastChargerStatusValue" translatable="false">3</string>
+
+    <!-- Whether device has Turbo power charging support -->
+    <bool name="config_hasTurboPowerCharger">true</bool>
 </resources>
