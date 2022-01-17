@@ -32,6 +32,7 @@ ro.iorapd.enable=false
 
 # LMK
 ro.lmk.filecache_min_kb=153600
+ro.lmk.kill_timeout_ms=50
 
 # Media
 media.settings.xml=/vendor/etc/media_profiles_khaje_v0.xml
