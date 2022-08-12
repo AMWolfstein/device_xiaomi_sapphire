@@ -26,10 +26,6 @@ persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 persist.rcs.supported=1
 
-# IOrap
-persist.device_config.runtime_native_boot.iorap_perfetto_enable=true
-ro.iorapd.enable=false
-
 # LMK
 ro.lmk.filecache_min_kb=153600
 ro.lmk.kill_timeout_ms=50
