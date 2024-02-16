@@ -17,7 +17,8 @@ on property:vendor.post_boot.parsed=1
     write /dev/cpuset/top-app/cpus 0-7
 
     # configure input boost settings
-    write /proc/sys/walt/input_boost/input_boost_ms 120
+    write /sys/devices/system/cpu/cpu_boost/input_boost_ms 200
+    write /proc/sys/walt/input_boost/input_boost_ms 200
 
     # CPUFreq
     write /sys/devices/system/cpu/cpufreq/policy0/walt/up_rate_limit_us 500
