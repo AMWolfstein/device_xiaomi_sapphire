@@ -1359,6 +1359,17 @@ vendor/firmware/vpu20_4v_unsigned.mbn
 # Media configs
 vendor/etc/media_khaje_iot/video_system_specs.json
 
+# Mlipay
+odm/bin/mlipayd@1.1
+odm/etc/init/vendor.xiaomi.hardware.mlipay@1.1-service.rc
+odm/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mlipay.xml
+odm/lib64/libmlipay.so
+odm/lib64/libmlipay@1.1.so
+odm/lib64/libteeclientjni.so
+odm/lib64/libwvkeybox.so
+odm/lib64/vendor.xiaomi.hardware.mlipay@1.0.so
+odm/lib64/vendor.xiaomi.hardware.mlipay@1.1.so
+
 # Native public libraries
 vendor/etc/public.libraries.txt
 
@@ -1407,31 +1418,6 @@ vendor/lib64/libpasrutils.so
 vendor/lib64/vendor.qti.memory.pasrmanager@1.0.so
 vendor/lib64/vendor.qti.memory.pasrmanager@1.1.so
 vendor/lib64/vendor.qti.power.pasrmanager@1.0.so
-
-# Payment (Xiaomi)
-odm/bin/mlipayd@1.1
-odm/bin/mtd@1.3
-odm/etc/init/vendor.xiaomi.hardware.mlipay@1.1-service.rc
-odm/etc/init/vendor.xiaomi.hardware.mtdservice@1.3-service.rc
-odm/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mlipay.xml
-odm/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mtdservice.xml
-odm/lib64/libmlipay.so
-odm/lib64/libmlipay@1.1.so
-odm/lib64/libmt@1.3.so
-odm/lib64/libteeclientjni.so
-odm/lib64/libwvkeybox.so
-odm/lib64/vendor.xiaomi.hardware.mlipay@1.0.so
-odm/lib64/vendor.xiaomi.hardware.mlipay@1.1.so
-odm/lib64/vendor.xiaomi.hardware.mtdservice@1.0.so
-odm/lib64/vendor.xiaomi.hardware.mtdservice@1.1.so
-odm/lib64/vendor.xiaomi.hardware.mtdservice@1.2.so
-odm/lib64/vendor.xiaomi.hardware.mtdservice@1.3.so
-vendor/bin/fidoca
-vendor/etc/init/vendor.xiaomi.hardware.mfidoca@1.0-service.rc
-vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mfidoca.xml
-vendor/lib64/libmfido.so
-vendor/lib64/libmisight.so
-vendor/lib64/vendor.xiaomi.hardware.mfidoca@1.0.so
 
 # Perf
 vendor/bin/hw/vendor.qti.hardware.perf-hal-service
