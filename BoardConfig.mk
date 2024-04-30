@@ -72,7 +72,7 @@ $(call soong_config_set, ufsbsg, ufsframework, bsg)
 TARGET_BOOTLOADER_BOARD_NAME := bengal
 
 # Display
-TARGET_SCREEN_DENSITY := 420
+TARGET_SCREEN_DENSITY := 437
 
 # DTB/DTBO
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
