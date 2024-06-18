@@ -244,14 +244,6 @@ ro.vendor.audio.dolby.surround.enable=false
 vendor.audio.dolby.ds2.enabled=false
 vendor.audio.dolby.ds2.hardbypass=false
 
-# Fingerprint
-ro.hardware.fp.fod=true
-ro.hardware.fp.fod.location=low
-ro.hardware.fp.fod.lowlight.brightness.threshold=411
-ro.hardware.fp.fod.lowlight.lux.threshold=3
-ro.hardware.fp.fod.touch.ctl.version=2.0
-ro.vendor.display.fod_monitor_default_fps=120
-
 # Fling
 ro.min.fling_velocity=160
 ro.max.fling_velocity=20000
