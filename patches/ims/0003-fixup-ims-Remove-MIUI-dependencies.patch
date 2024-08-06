@@ -1,0 +1,62 @@
+From 2aa8fa7d1c3b28c9a5d8506ae5f492424cf669c7 Mon Sep 17 00:00:00 2001
+From: truly-irham <ep0107566@student.uniten.edu.my>
+Date: Wed, 3 Apr 2024 17:03:27 +0800
+Subject: [PATCH] fixup! ims: Remove MIUI dependencies
+
+From the previous commit (43e92de1019e1006b3173187e1441a5d3ae1ed78), the
+synchronizeMessage definition got removed entirely from
+ImsSenderRxr.smali. However, the synchronizeMessage method got called
+anyway from ImsCallSessionImpl.smali and
+ImsCallSessionImpl$ImsCallSessionImplHandler.smali, causing the
+following crashes:
+
+FATAL EXCEPTION: main
+Process: org.codeaurora.ims, PID: 3363
+java.lang.NoSuchMethodError: No virtual method synchronizeMessage(Ljava/lang/String;II)V in class Lorg/codeaurora/ims/ImsSenderRxr; or its super classes (declaration of 'org.codeaurora.ims.ImsSenderRxr' appears in /system_ext/priv-app/ims/ims.apk)
+ at org.codeaurora.ims.ImsCallSessionImpl$ImsCallSessionImplHandler.handleMessage(ImsCallSessionImpl.java:1125)
+ at android.os.Handler.dispatchMessage(Handler.java:107)
+ at android.os.Looper.loopOnce(Looper.java:232)
+ at android.os.Looper.loop(Looper.java:317)
+ at android.app.ActivityThread.main(ActivityThread.java:8488)
+ at java.lang.reflect.Method.invoke(Native Method)
+ at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:554)
+ at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:878)
+
+This patch also fixes the ended call problem where the ongoing call gets
+ended after rejecting an incoming call at the same time.
+
+Testing: https://github.com/truly-irham/ims/releases/download/v1.0/fix_ims_crash-v1.zip
+---
+ .../ims/ImsCallSessionImpl$ImsCallSessionImplHandler.smali      | 2 --
+ smali/org/codeaurora/ims/ImsCallSessionImpl.smali               | 2 --
+ 2 files changed, 4 deletions(-)
+
+diff --git a/smali/org/codeaurora/ims/ImsCallSessionImpl$ImsCallSessionImplHandler.smali b/smali/org/codeaurora/ims/ImsCallSessionImpl$ImsCallSessionImplHandler.smali
+index 7e72a78..9046bd3 100644
+--- a/smali/org/codeaurora/ims/ImsCallSessionImpl$ImsCallSessionImplHandler.smali
++++ b/smali/org/codeaurora/ims/ImsCallSessionImpl$ImsCallSessionImplHandler.smali
+@@ -1094,8 +1094,6 @@
+ 
+     const/4 v4, 0x6
+ 
+-    invoke-virtual {v2, v3, v1, v4}, Lorg/codeaurora/ims/ImsSenderRxr;->synchronizeMessage(Ljava/lang/String;II)V
+-
+     .line 1132
+     goto/16 :goto_2
+ 
+diff --git a/smali/org/codeaurora/ims/ImsCallSessionImpl.smali b/smali/org/codeaurora/ims/ImsCallSessionImpl.smali
+index 43c838b..937d538 100644
+--- a/smali/org/codeaurora/ims/ImsCallSessionImpl.smali
++++ b/smali/org/codeaurora/ims/ImsCallSessionImpl.smali
+@@ -11196,8 +11196,6 @@
+ 
+     const/4 v5, 0x6
+ 
+-    invoke-virtual {v3, v4, v5, v1}, Lorg/codeaurora/ims/ImsSenderRxr;->synchronizeMessage(Ljava/lang/String;II)V
+-
+     goto/16 :goto_3
+ 
+     .line 470
+-- 
+2.45.2.windows.1
+

@@ -1,0 +1,33 @@
+From fb3cae1b3ed5d0ddd952f2c041bb605a8d1bc040 Mon Sep 17 00:00:00 2001
+From: Cosmin Tanislav <demonsingur@gmail.com>
+Date: Mon, 30 Jan 2023 01:58:27 +0200
+Subject: [PATCH] ims: Remove BIND_QTI_IMS_SERVICE permission
+
+---
+ AndroidManifest.xml | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index 29f4968..63b0738 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -28,7 +28,6 @@
+     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+     <permission android:name="com.qti.permission.DIAG" android:protectionLevel="signatureOrSystem"/>
+     <permission android:name="com.qti.permission.AUDIO" android:protectionLevel="signatureOrSystem"/>
+-    <permission android:name="com.qti.permission.BIND_QTI_IMS_SERVICE" android:protectionLevel="signatureOrSystem"/>
+     <permission android:name="com.qti.permission.RECEIVE_PRE_ALERTING_CALL_INFO" android:protectionLevel="signatureOrSystem"/>
+     <permission android:name="com.qti.permission.RECEIVE_SMS_CALLBACK_MODE" android:protectionLevel="signatureOrSystem"/>
+     <permission android:name="com.qti.permission.RECEIVE_MSIM_VOICE_CAPABILITY" android:protectionLevel="signatureOrSystem"/>
+@@ -40,7 +39,7 @@
+                 <action android:name="android.telephony.ims.ImsService"/>
+             </intent-filter>
+         </service>
+-        <service android:enabled="true" android:exported="true" android:name=".QtiImsExtService" android:permission="com.qti.permission.BIND_QTI_IMS_SERVICE" android:singleUser="true"/>
++        <service android:enabled="true" android:exported="true" android:name=".QtiImsExtService" android:singleUser="true"/>
+         <uses-library android:name="qti-telephony-hidl-wrapper"/>
+         <uses-library android:name="qti-telephony-utils"/>
+         <uses-library android:name="ims-ext-common"/>
+-- 
+2.45.2.windows.1
+

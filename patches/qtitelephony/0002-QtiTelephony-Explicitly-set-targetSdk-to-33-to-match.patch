@@ -1,0 +1,23 @@
+From 7b6a84b3a8edac998f8bc521b43d1d4aa2a6fa3f Mon Sep 17 00:00:00 2001
+From: Arian <arian.kulmer@web.de>
+Date: Wed, 28 Feb 2024 11:46:29 +0100
+Subject: [PATCH] QtiTelephony: Explicitly set targetSdk to 33 to match stock
+
+Otherwise apktool builds it using 34...
+---
+ AndroidManifest.xml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index 257e0d1..a697036 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -1,4 +1,5 @@
+ <?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" android:sharedUserId="android.uid.qtiphone" android:singleUser="true" coreApp="true" package="com.qti.phone" platformBuildVersionCode="34" platformBuildVersionName="14">
++    <uses-sdk android:targetSdkVersion="33"/>
+     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+-- 
+2.45.2.windows.1
+
