@@ -1,10 +1,10 @@
 /*
- * Copyright (C) 2022 The LineageOS Project
+ * Copyright (C) 2024 The LineageOS Project
  *
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#define LOG_TAG "UdfpsHandler.xiaomi_sm6225"
+#define LOG_TAG "UdfpsHandler.sapphire"
 
 #include <android-base/logging.h>
 #include <android-base/unique_fd.h>
@@ -70,7 +70,7 @@ static bool readBool(int fd) {
 
 }  // anonymous namespace
 
-class XiaomiSm6225UdfpsHander : public UdfpsHandler {
+class XiaomiSapphireUdfpsHander : public UdfpsHandler {
   public:
     void init(fingerprint_device_t* device) {
         mDevice = device;
@@ -154,7 +154,7 @@ class XiaomiSm6225UdfpsHander : public UdfpsHandler {
 };
 
 static UdfpsHandler* create() {
-    return new XiaomiSm6225UdfpsHander();
+    return new XiaomiSapphireUdfpsHander();
 }
 
 static void destroy(UdfpsHandler* handler) {

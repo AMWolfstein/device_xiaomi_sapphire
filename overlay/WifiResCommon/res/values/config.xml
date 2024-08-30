@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2023 The LineageOS Project
+     Copyright (C) 2024 The LineageOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
     <!-- Boolean to provide support to keep wifi5 symbol for 8SS supported device and 11ax AP -->
     <bool name="config_vendorWifi11axReadySupport">true</bool>
 
@@ -85,5 +84,4 @@
      Enabling this configuration will restore legacy behavior but may result in incorrect behavior.
      -->
     <bool name="config_wifiAllowMultipleNetworksOnSameAwareNdi" translatable="false">true</bool>
-
 </resources>

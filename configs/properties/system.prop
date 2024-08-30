@@ -1,9 +1,6 @@
 # CNE
 persist.vendor.cne.feature=1
 
-# Ftrace
-persist.debug.ftrace_events_disable=Yes
-
 # Fingerprint
 sys.fp.miui.token=0
 
@@ -17,8 +14,10 @@ debug.sf.disable_backpressure=1
 debug.hwui.use_hint_manager=true
 debug.hwui.target_cpu_time_percent=30
 
-# HWUI
-debug.hwui.skia_atrace_enabled=false
+# IMS
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
 
 # IOrap
 persist.device_config.runtime_native_boot.iorap_perfetto_enable=true
@@ -41,14 +40,22 @@ ro.nfc.port=I2C
 # NTP
 persist.backup.ntpServer="0.pool.ntp.org"
 
+# Radio
+DEVICE_PROVISIONED=1
+persist.vendor.radio.atfwd.start=true
+ril.subscription.types=NV,RUIM
+rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
+ro.telephony.default_network=33,33
+telephony.lteOnCdmaDevice=1
+
 # SdCardFS
 persist.sys.fuse.passthrough.enable=true
 
-# Soc
-ro.soc.manufacturer=QTI
-
 # Sensors
 persist.vendor.sensors.enable.mag_filter=true
+
+# Soc
+ro.soc.manufacturer=QTI
 
 # SSR
 persist.vendor.ssr.enable_ramdumps=1
