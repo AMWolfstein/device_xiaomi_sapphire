@@ -241,6 +241,14 @@ vendor.audio.dolby.ds2.hardbypass=false
 # FM
 vendor.hw.fm.init=0
 
+# Fingerprint
+ro.hardware.fp.fod=true
+ro.hardware.fp.fod.location=low
+ro.hardware.fp.fod.lowlight.brightness.threshold=411
+ro.hardware.fp.fod.lowlight.lux.threshold=3
+ro.hardware.fp.fod.touch.ctl.version=2.0
+ro.vendor.display.fod_monitor_default_fps=120
+
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 

@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2023 The LineageOS Project
+# Copyright (C) 2024 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -16,8 +16,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
-# Inherit from the proprietary files makefile.
-$(call inherit-product, vendor/xiaomi/sm6225-common/sm6225-common-vendor.mk)
+# Inherit from the proprietary version
+$(call inherit-product, vendor/xiaomi/sapphire/sapphire-vendor.mk)
+
+# AAPT
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -99,6 +103,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2400
+TARGET_SCREEN_WIDTH := 1080
 
 # Boot control
 PRODUCT_PACKAGES += \
@@ -207,18 +215,14 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 # Fingerprint
-ifneq ($(TARGET_IS_TABLET),true)
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.3-service.xiaomi
 
-ifeq ($(TARGET_HAS_UDFPS),true)
 PRODUCT_PACKAGES += \
     libudfpshandler
-endif
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
-endif
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
@@ -422,6 +426,14 @@ PRODUCT_PACKAGES += \
     TelecommResCommon \
     TelephonyResCommon
 endif
+
+PRODUCT_PACKAGES += \
+    ApertureResSapphire \
+    FrameworksResSapphire \
+    SettingsProviderResSapphire \
+    SettingsResSapphire \
+    SystemUIResSapphire \
+    WifiResSapphire
 
 # Overlays Lineage
 DEVICE_PACKAGE_OVERLAYS += \
